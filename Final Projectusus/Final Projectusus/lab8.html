@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hotline Miami</title>
+    <link rel="icon" href="media/ico.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-image: url("shigure-ui-dancing.gif");
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+             text-shadow: 2px 8px 4px rgba(0, 0, 0, 1);
+        }
+
+        #container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #getDayButton {
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: black; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; 
+        }
+
+        #getDayButton:hover {
+            background-color: #2980b9;         }
+
+        #output {
+            font-size: 24px;
+            color: #333; 
+            margin-top: 20px;
+        }
+        
+        #finishButton {
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #e74c3c; 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        #finishButton:hover {
+            background-color: #c0392b;         }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <h1>Get Day of the Week</h1>
+        <button id="getDayButton">Get Day</button>
+        <div>
+            <h2 id="output"></h2>
+        </div>
+        <a id="finishButton" href="index.html">Finish</a>
+
+    </div>
+<script>
+    document.querySelector("button").addEventListener("click", handleClick);
+
+    function handleClick(){
+        var audio = new Audio('media/123.mp3');
+        audio.play();
+    }
+</script>
+    <script>
+        let day, dayName;
+
+        function getDayOfWeek() {
+            const today = new Date();
+            day = today.getDay();
+            switch (day) {
+                case 0:
+                    dayName = "Sunday";
+                    break;
+                case 1:
+                    dayName = "Monday";
+                    break;
+                case 2:
+                    dayName = "Tuesday";
+                    break;
+                case 3:
+                    dayName = "Wednesday";
+                    break;
+                case 4:
+                    dayName = "Thursday";
+                    break;
+                case 5:
+                    dayName = "Friday";
+                    break;
+                case 6:
+                    dayName = "Saturday";
+                    break;
+            }
+            document.getElementById("output").textContent = dayName;
+        }
+
+        document.getElementById("getDayButton").addEventListener("click", getDayOfWeek);
+    </script>
+</body>
+
+</html>

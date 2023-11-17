@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+   <title>Hotline Miami</title>
+   <link rel="icon" href="media/ico.jpg" type="image/x-icon">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+   <link rel="stylesheet" href="styles1.css">
+   <script src="https://kit.fontawesome.com/c98d165499.js" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+      </script>
+    <style>
+        body {
+           font-size: 20px;
+            margin: 20px;
+            color: white;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            margin-top: 200px;
+            font-weight: bold;
+        }
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><i class="fas fa-fire"></i> Hotline Miami</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Back</a>
+            </li>
+           
+          </ul>
+        </div>
+      </nav>
+<div class="quiz-container">
+    <h1>Multiple Choice Quiz </h1>
+    <div id="timer">Time remaining: 5:00</div>
+
+    <form id="quizForm">
+        <div class="question">
+            <p>1. What is the surname of main russian mafia boss?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"> a) Ivanov</label>
+                <label><input type="radio" name="q1" value="b"> b) Lebedev</label>
+                <label><input type="radio" name="q1" value="c"> c) Korotyuk</label>
+                <label><input type="radio" name="q1" value="d"> d) Sherbakov</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. What is the name of the main telephone company?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a"> a) Home phone</label>
+                <label><input type="radio" name="q2" value="b"> b) Phone home</label>
+                <label><input type="radio" name="q2" value="c"> c) Phone phone</label>
+                <label><input type="radio" name="q2" value="d"> d) Home home</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. which mask allows you to increase the ammunition in the weapon?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a"> a) Rami</label>
+                <label><input type="radio" name="q3" value="b"> b) Jake</label>
+                <label><input type="radio" name="q3" value="c"> c) Righter</label>
+                <label><input type="radio" name="q3" value="d"> d) Rufus</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Who is the main protagonist in "Hotline Miami"?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a"> a) Biker</label>
+                <label><input type="radio" name="q4" value="b"> b) Richard</label>
+                <label><input type="radio" name="q4" value="c"> c) Tony</label>
+                <label><input type="radio" name="q4" value="d"> d) Jacket</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. What is the name of the first mask the main character receives?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"> a) Rabbit</label>
+                <label><input type="radio" name="q5" value="b"> b) Horse</label>
+                <label><input type="radio" name="q5" value="c"> c) Rooster</label>
+                <label><input type="radio" name="q5" value="d"> d) Owl</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>6. Which track plays at the beginning of each level?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a"> a) "Hydrogen" by M.O.O.N</label>
+                <label><input type="radio" name="q6" value="b"> b) "Hotline Miami" by Jasper Byrne</label>
+                <label><input type="radio" name="q6" value="c"> c)  "Daisuke" by El Huervo</label>
+                <label><input type="radio" name="q6" value="d"> d)  "Miami Disco" by Perturbator</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>7. What is the name of the organization sending mysterious phone calls with assignments?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"> a) 50 Blessings</label>
+                <label><input type="radio" name="q7" value="b"> b) The PhoneFreaks</label>
+                <label><input type="radio" name="q7" value="c"> c) The Janitors</label>
+                <label><input type="radio" name="q7" value="d"> d) The Midnight Society</label6>
+            </div>
+        </div>
+        <div class="question">
+            <p>8. What weapon is the signature choice of the main character in the game?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"> a) Katana</label>
+                <label><input type="radio" name="q7" value="b"> b)  Swiss knife</label>
+                <label><input type="radio" name="q7" value="c"> c) Golf club</label>
+                <label><input type="radio" name="q7" value="d"> d)  Baseball bat</label>
+            </div7>
+        </div>
+        <div class="question">
+            <p>9. In which year is the game "Hotline Miami" set?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a"> a) 1985</label>
+                <label><input type="radio" name="q9" value="b"> b)  1990</label>
+                <label><input type="radio" name="q9" value="c"> c) 1989</label>
+                <label><input type="radio" name="q9" value="d"> d) 1987</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>10. What is the title of the sequel to "Hotline Miami"?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a"> a) Hotline Miami: Bloodline</label>
+                <label><input type="radio" name="q10" value="b"> b) Hotline Miami: Redux</label>
+                <label><input type="radio" name="q10" value="c"> c) Hotline Miami: Retribution</label>
+                <label><input type="radio" name="q10" value="d"> d) Hotline Miami 2: Wrong Number</label>
+            </div>
+        </div>
+    </form>
+
+
+    <div id="result"></div>
+
+    <!-- Кнопка для прокрутки страницы вверх -->
+    <div>
+        <button type="button" class="btn btn-outline-light btn-lg download-button" style="margin-left: 37%;"
+            onclick="scrollToTop()">Scroll To Top</button>
+    </div>
+</div>
+
+<script>
+        document.getElementById('quizForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            endQuiz();
+        });
+
+        var timeRemaining = 150; 
+        var timerDisplay = document.getElementById('timer');
+
+        function updateTimer() {
+            var minutes = Math.floor(timeRemaining / 60);
+            var seconds = timeRemaining % 60;
+            timerDisplay.textContent = 'Time remaining: ' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+            if (timeRemaining <= 0) {
+                endQuiz();
+            } else {
+                timeRemaining--;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+
+        function endQuiz() {
+            var score = 0;
+            var correctAnswers = ['b', 'b', 'a', 'd', 'c', 'a', 'a', 'd', 'c', 'd'];
+
+            for (var i = 1; i <= 10; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selectedOption) {
+                    var userAnswer = selectedOption.value;
+                    if (userAnswer === correctAnswers[i - 1]) {
+                        score++;
+                    }
+                }
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = 'Your score: ' + score + ' out of 10';
+        }
+
+        // Start the timer when the page loads
+        updateTimer();
+
+        // Функция для прокрутки страницы вверх
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

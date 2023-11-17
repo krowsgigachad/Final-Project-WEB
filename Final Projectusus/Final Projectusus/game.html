@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turret Target Game</title>
+    <link rel="icon" href="media/ico.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Ubuntu:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles1.css">
+    <script src="https://kit.fontawesome.com/c98d165499.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden; /* Hide scroll bars */
+        }
+
+        canvas {
+            border: 1px solid #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #timer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            z-index: 1;
+            user-select: none;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            right: 10px; /* Updated position to the right */
+            color: white;
+            font-size: 18px;
+            z-index: 1;
+        }
+
+        #gameOver {
+            bottom: 10px;
+            top: 65%;
+            margin-left: 90%;
+            color: white;
+            font-size: 30px;
+        }
+
+        h1 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(69, 65, 65);
+            font-size: 45px;
+            z-index: 1;
+            user-select: none;
+        }
+        
+        a{
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><i class="fas fa-fire"></i> Hotline Miami</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Back</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <div id="timer">Time remaining: 15 seconds</div>
+    
+    <div id="gameOver"></div>
+    <h1>Turret Target Game</h1>
+
+    <script>
+        var canvas = document.getElementById('gameCanvas');
+        var ctx = canvas.getContext('2d');
+
+        var targets = [];
+        var score = 0;
+        var timeRemaining = 15;
+        var countdownInterval;
+
+        canvas.addEventListener('click', shoot);
+
+        function createTarget() {
+            var target = {
+                x: Math.random() * (canvas.width - 30),
+                y: Math.random() * (canvas.height - 30),
+                radius: 15,
+                color: getRandomColor(),
+            };
+            targets.push(target);
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function drawTargets() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < targets.length; i++) {
+                ctx.beginPath();
+                ctx.arc(targets[i].x, targets[i].y, targets[i].radius, 0, Math.PI * 2);
+                ctx.fillStyle = targets[i].color;
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        function shoot(event) {
+            var mouseX = event.clientX - canvas.getBoundingClientRect().left;
+            var mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+            for (var i = 0; targets.length > 0 && i < targets.length; i++) {
+                var distance = Math.sqrt(Math.pow((mouseX - targets[i].x), 2) + Math.pow((mouseY - targets[i].y), 2));
+                if (distance < targets[i].radius) {
+                    targets.splice(i, 1);
+                    score++;
+                    updateScore();
+                    createTarget();
+                    break;
+                }
+            }
+            drawTargets();
+        }
+
+      
+        function endGame() {
+            canvas.removeEventListener('click', shoot);
+            clearInterval(countdownInterval);
+            ctx.font = '30px Arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText('Game Over! Your Score: ' + score, canvas.width / 3.5, canvas.height - 70);
+        }
+
+        function countdown() {
+            if (timeRemaining > 0) {
+                timeRemaining--;
+                document.getElementById('timer').innerHTML = 'Time remaining: ' + timeRemaining + ' seconds';
+            } else {
+                endGame();
+            }
+        }
+
+        // Set canvas dimensions to a fixed size
+        var gameWidth = 800;
+        var gameHeight = 400;
+        canvas.width = gameWidth;
+        canvas.height = gameHeight;
+
+        // Start the game loop and countdown
+        setInterval(createTarget, 2000);
+        countdownInterval = setInterval(countdown, 1000);
+    </script>
+</body>
+</html>

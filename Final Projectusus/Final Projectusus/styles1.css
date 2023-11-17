@@ -1,0 +1,196 @@
+body {
+  font-family: Montserrat;
+  background-color: black;
+   background-size: cover;
+
+}
+
+#title {
+ 
+  color: #fff;
+
+
+}
+
+
+h1 {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+
+table {
+    width: 100%;
+  
+}
+
+
+table th {
+
+
+    padding: 10px;
+    text-align: left;
+    border: 3px solid;
+    font-size: 40px;
+    color: white;
+}
+
+
+table td {
+    
+    padding: 10px;
+}
+ table tr td{
+
+  border: 3px solid #ccc;
+    padding: 10px;
+    font-size: 40px;
+    color: deeppink;
+ }
+
+
+.container-fluid {
+  padding: 3% 15%;
+}
+
+
+/* Navbar Section */
+
+.navbar-brand {
+  font-family: Ubuntu;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.navbar {
+  padding: 0 0 4.5rem 0;
+}
+
+.nav-item {
+  padding: 0 0px;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+/* Download Buttons */
+
+.download-button {
+  margin: 3% 5% 0 0;
+}
+
+/* Title image */
+
+.rounded-img {
+  border-radius: 20px; 
+  width: 500px; 
+  height: 500px;
+}
+
+/* Features */
+
+#features {
+  padding: 3% 15%;
+  text-align: center;
+}
+
+.icon {
+  margin-bottom: 1.5rem;
+  color: #ef8172;
+}
+
+.icon:hover {
+  color: #ff4c68;
+}
+
+#testimonials {
+  padding: 7% 15%;
+  text-align: center;
+  background-image: url('media/3.gif');
+  color: #fff;
+  background-size: cover;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+
+.testimonial-img {
+  width: 20%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+/*Press Section*/
+
+#press {
+  background-color: #ef8172;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+#error-message{
+  margin-top: 10px;
+  color: red;
+  background-color: #201413;
+  text-align: center;
+  width: 170px;
+}
+
+#taskLabel{
+  color: white;
+  margin-right: 5px;
+}
+
+#taskList{
+  color: #fff;
+}
+
+#start-timer{
+  margin-top: auto;
+  padding: 2px 10px;
+  font-size: 18px;
+}
+
+#addTask{
+  margin-top: auto;
+  padding: 2px 10px;
+  font-size: 18px;
+}
+
+#result{
+  font-size: 50px;
+  text-align: center;
+}
+
+/* Стили для фрагментов пазла */
+.puzzle-piece {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  margin: 5px;
+  display: inline-block;
+  cursor: grab;
+}
+
